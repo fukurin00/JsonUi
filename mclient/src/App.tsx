@@ -1,33 +1,20 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
-import ProTip from './ProTip';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import DashBoard from "./components/pages/dashboard";
+import Map from "./components/pages/map"
+import Human from "./components/pages/Human"
 
-export default function App() {
+const App: React.FC = () => {
   return (
-    <Container maxWidth="sm">
-      <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Create React App v4-beta example with TypeScript
-        </Typography>
-        <ProTip />
-        <Copyright />
-      </Box>
-    </Container>
+    <Router>
+      <Switch>
+        <Route path="/" component={DashBoard} exact />
+        <Route path="/map" component={Map} exact />
+        <Route path="/human" component={Human} exact />
+      </Switch>
+    </Router>
   );
-}
+};
+
+export default App;
