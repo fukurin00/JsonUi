@@ -23,6 +23,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import { OverridableComponent } from "@material-ui/core/OverridableComponent";
 
 const drawerWidth = 240;
 
@@ -233,6 +234,14 @@ const GenericTemplate: React.FC<GenericTemplateProps> = ({
                   <PeopleIcon />
                 </ListItemIcon>
                 <ListItemText primary="Human" />
+              </ListItem>
+            </Link>
+            <Link to="/test" className={classes.link}>
+              <ListItem button>
+                <ListItemIcon>
+                  <PeopleIcon />
+                </ListItemIcon>
+                <ListItemText primary="Test" />
               </ListItem>
             </Link>
           </List>

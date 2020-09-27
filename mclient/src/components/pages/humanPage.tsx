@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import GenericTemplate from "../templates/genericTemplate";
 
+import { SocketProvider, useSocket } from '../templates/useSocket';
 
 type HumanOpt ={
   id: number
@@ -10,26 +11,15 @@ type HumanOpt ={
   status: string
 };
 
-function createData(opt: HumanOpt) {
-  return opt;
-}
 
-type HumanProps = {
-  socket: SocketIOClient.Socket;
-}
 type HumanState = {
   data: HumanOpt[],
   idList: number[]
 }
 
 
-class Human extends React.Component<HumanProps, HumanState>{
-  constructor(props: HumanProps){
-    super(props);
-    this.state = {idList: [], data: []};
-    this.props.socket.on('wes-human', this.handle);
-  }
-
+class Human extends React.Component<{}, HumanState>{
+ 
   handle(msg: string){
     const payload = JSON.parse(msg);
     console.log("get human" ,payload.id, payload);

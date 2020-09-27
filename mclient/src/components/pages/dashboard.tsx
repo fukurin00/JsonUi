@@ -36,11 +36,7 @@ function LinearDeterminate() {
   );
 }
 
-type Props = {
-  socket: SocketIOClient.Socket;
-}
-
-class DashBoard extends React.Component<Props, {}>{
+class DashBoard extends React.Component<{}, {}>{
 
   render(){
     return (
